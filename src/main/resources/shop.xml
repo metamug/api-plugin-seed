@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Resource xmlns="http://xml.metamug.net/resource/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://xml.metamug.net/resource/1.0 http://xml.metamug.net/schema/resource.xsd" >
+    <Request method="GET">
+        <Query>
+           select * from shop; 
+        </Query>
+    </Request>
+    <Request method="GET" item="true">
+        <Execute classname="com.metamug.seed.RequestProcessor" />
+    </Request>
+</Resource>
