@@ -5,8 +5,9 @@
  */
 package com.metamug.seed;
 
-import com.google.gson.Gson;
+
 import com.metamug.exec.RequestProcessable;
+import com.metamug.seed.entity.Customer;
 import java.util.Map;
 import javax.sql.DataSource;
 
@@ -18,13 +19,8 @@ public class RequestProcessor implements RequestProcessable{
 
     @Override
     public Object process(Map<String, String> parameters, DataSource ds, Map<String, String> headers) {
-        if(headers.get("Accept").equals("application/json")){
-            Gson gson = new Gson();
-            String json = gson.toJson(parameters);
-            return json;
-        }else{
-            return "Invalid Request Header";
-        }
+        Customer c = new Customer("Irfan");
+        return c ;
     }
     
 }
