@@ -1,5 +1,5 @@
 # seed
-Code Execution Seed Project
+Code Execution Seed Project for S3 Image upload.
 
 Uses [Metamug Code API](https://github.com/metamug/mtg-api) as dependency
 

@@ -9,20 +9,23 @@ public class RandomString {
 
     /**
      * Generate a random string.
+     *
+     * @return Random generated String
      */
     public String nextString() {
-        for (int idx = 0; idx < buf.length; ++idx)
+        for (int idx = 0; idx < buf.length; ++idx) {
             buf[idx] = symbols[random.nextInt(symbols.length)];
+        }
         return new String(buf);
     }
 
-    public static final String upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    public static final String UPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    public static final String lower = upper.toLowerCase(Locale.ROOT);
+    public static final String LOWER = UPPER.toLowerCase(Locale.ROOT);
 
-    public static final String digits = "0123456789";
+    public static final String DIGITS = "0123456789";
 
-    public static final String alphanum = upper + lower + digits;
+    public static final String ALPHANUM = UPPER + LOWER + DIGITS;
 
     private final Random random;
 
@@ -31,8 +34,12 @@ public class RandomString {
     private final char[] buf;
 
     public RandomString(int length, Random random, String symbols) {
-        if (length < 1) throw new IllegalArgumentException();
-        if (symbols.length() < 2) throw new IllegalArgumentException();
+        if (length < 1) {
+            throw new IllegalArgumentException();
+        }
+        if (symbols.length() < 2) {
+            throw new IllegalArgumentException();
+        }
         this.random = Objects.requireNonNull(random);
         this.symbols = symbols.toCharArray();
         this.buf = new char[length];
@@ -40,13 +47,18 @@ public class RandomString {
 
     /**
      * Create an alphanumeric string generator.
+     *
+     * @param length required length of string.
+     * @param random Random object.
      */
     public RandomString(int length, Random random) {
-        this(length, random, alphanum);
+        this(length, random, ALPHANUM);
     }
 
     /**
      * Create an alphanumeric strings from a secure generator.
+     *
+     * @param length required length of string
      */
     public RandomString(int length) {
         this(length, new SecureRandom());

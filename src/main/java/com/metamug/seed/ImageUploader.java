@@ -3,24 +3,9 @@ package com.metamug.seed;
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.s3.AmazonS3Client;
-import com.amazonaws.services.s3.model.CannedAccessControlList;
-import com.amazonaws.services.s3.model.ListObjectsRequest;
-import com.amazonaws.services.s3.model.ObjectListing;
-import com.amazonaws.services.s3.model.PutObjectRequest;
-import com.amazonaws.services.s3.model.PutObjectResult;
 import com.metamug.event.UploadEvent;
 import com.metamug.event.UploadListener;
-import java.io.File;
 import javax.sql.DataSource;
-import java.sql.SQLException;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Connection;
-import java.util.Map;
-import java.security.SecureRandom;
-import java.math.BigInteger;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
