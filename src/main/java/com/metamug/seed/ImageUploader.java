@@ -18,17 +18,16 @@ public class ImageUploader implements UploadListener {
     private static final String AWS_SECRET_KEY = "secret_key";
     public final static AWSCredentials CREDENTIALS = new BasicAWSCredentials(AWS_ACCESS_KEY, AWS_SECRET_KEY);
     private final static AmazonS3Client S3CLIENT = new AmazonS3Client(CREDENTIALS);
-    
+
     @Override
     public String uploadPerformed(UploadEvent event, DataSource ds) {
-            String random = new RandomString(32).nextString();
-    
-         	// PutObjectResult por = S3CLIENT.putObject(
-          //    	new PutObjectRequest(AWS_S3_BUCKET,  
-          //    		"/callmystyle/images/"+ random + "." + event.getFileName().split("\\.")[1], event.getUploadedFile())
-          //       .withCannedAcl(CannedAccessControlList.PublicRead));
+        String random = new RandomString(32).nextString();
 
-			return "{\"success\":\""+random+"\"}";
+        // PutObjectResult por = S3CLIENT.putObject(
+        //    	new PutObjectRequest(AWS_S3_BUCKET,  
+        //    		"/callmystyle/images/"+ random + "." + event.getFileName().split("\\.")[1], event.getUploadedFile())
+        //       .withCannedAcl(CannedAccessControlList.PublicRead));
+        return "{\"success\":\"" + random + "\"}";
     }
 
 }
